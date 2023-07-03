@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.board.dao.BoardMapper">
+<select id="list" >
+	select *
+	from tbl_board
+</select>
+
+
+<insert id="insert" parameterType="board">
+	insert into tbl_board (brd_no , brd_title , brd_writer , brd_content)
+	values (board_seq.nextval , #{brdTitle},#{brdWriter},#{brdContent})
+
+</insert>
+<select id = "select" parameterType="Long">
+  	select * from tbl_board where brd_no = #{bno}
+  </select>
+  <update id ="updateCnt" parameterType="Long">
+  	update tbl_board set click_cnt = click_cnt+1 where brd_no = #{bno}
+  </update>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
